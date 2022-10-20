@@ -14,10 +14,45 @@ public class Matrix {
         this.oszlop = oszlop;
         this.m = new int[sor][oszlop];
         for (int i = 0; i < this.m.length; i++) {
-            for (int j = 0; j < this.m[i].length; j++) {
-                this.m[i][j] = rnd.nextInt(1000);
+            for (int j = 0; j < this.m[i].length; j++) this.m[i][j] = rnd.nextInt(150) - 50;
+        }
+    }
+
+    public int getElementOsszege() {
+        int osszeg = 0;
+        for (int[] sor : this.m) {
+            for (int elem : sor) {
+                osszeg += elem;
             }
         }
+        return osszeg;
+    }
+
+    public int getPozitivElemekSzama() {
+        int db = 0;
+        for (int[] sor : this.m) {
+            for (int elem : sor) {
+                if (elem > 0) {
+                    db++;
+                }
+            }
+        }
+        return db;
+    }
+
+    /*public int getLegnagyobbElem() {
+        int max = this.m[0][0];
+        for (int[] ints : this.m) for (int anInt : ints) if (max < anInt) max = anInt; return max;
+    }*/
+
+    public int getLegnagyobbElem() {
+        int max = this.m[0][0];
+        for (int i = 0; i < this.m.length; i++) {
+            for (int j = 0; j < this.m[i].length; j++) {
+                if (max < this.m[i][j]) max = this.m[i][j];
+            }
+        }
+        return max;
     }
 
     @Override

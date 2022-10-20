@@ -8,5 +8,8 @@ public class Main {
         Matrix m2 = new Matrix(2,3);
         System.out.println(m2);
         System.out.println();
+        System.out.println(m2.getElementOsszege());
+        System.out.println(m2.getPozitivElemekSzama());
+        System.out.println(m2.getLegnagyobbElem());
     }
 }
