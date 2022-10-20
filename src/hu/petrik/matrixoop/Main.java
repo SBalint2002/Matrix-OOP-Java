@@ -1,5 +1,7 @@
 package hu.petrik.matrixoop;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Matrix m1 = new Matrix(5,7);
@@ -11,5 +13,8 @@ public class Main {
         System.out.println(m2.getElementOsszege());
         System.out.println(m2.getPozitivElemekSzama());
         System.out.println(m2.getLegnagyobbElem());
+        System.out.println(m2.getElsoPozitivElem()[0] + " " + m2.getElsoPozitivElem()[1]);
+        System.out.println(m2.sorOsszeg(2));
+        System.out.println(m2.maxElemOszlop(2));
     }
 }

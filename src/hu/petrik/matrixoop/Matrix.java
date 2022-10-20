@@ -55,6 +55,42 @@ public class Matrix {
         return max;
     }
 
+    public int[] getElsoPozitivElem() {
+        int sorIndex = 0;
+        int oszlopIndex = 0;
+        while (sorIndex < this.m.length && this.m[sorIndex][oszlopIndex] < 1) {
+            while (oszlopIndex < this.m[sorIndex].length && this.m[sorIndex][oszlopIndex] < 1){
+                oszlopIndex++;
+            }
+            if (oszlopIndex == this.m[sorIndex].length)
+                sorIndex++;
+            oszlopIndex=0;
+        }
+        if (sorIndex == this.m.length) {
+            return new int[] {-1,-1};
+        }
+        return new int[] {sorIndex, oszlopIndex};
+    }
+
+    public double sorOsszeg(int sor){
+        sor = sor - 1;
+        int osszeg = 0;
+        for (int elem: this.m[sor]) {
+            osszeg += elem;
+        }
+        return osszeg;
+    }
+
+    public double maxElemOszlop(int oszlop){
+        double max = this.m[0][oszlop-1];
+        for (int i = 0; i < this.m.length; i++) {
+            if (max < this.m[i][oszlop-1]){
+                max = this.m[i][oszlop-1];
+            }
+        }
+        return max;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
